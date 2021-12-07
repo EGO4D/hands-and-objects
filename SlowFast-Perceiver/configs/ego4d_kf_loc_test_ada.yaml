@@ -1,0 +1,35 @@
+DATA:
+  VIDEO_DIR_PATH: /ssd_scratch/cvit/sid/ego4d_benchmark/videos
+  ANN_PATH: /home/siddhant.b/Ego4D_keyframe_localisation/annotations/fho_miniset_v2.json
+  SPLIT_PATH: /home/siddhant.b/Ego4D_keyframe_localisation/annotations/splits.json
+  CLIPS_SAVE_PATH: /ssd_scratch/cvit/sid/ego4d_benchmark/data/clips
+  SAMPLING_FPS: 2
+  CLIP_LEN_SEC: 8
+  DECODING_BACKEND: pyav
+  TARGET_FPS: 30
+  NUM_FRAMES: 0  # Not required for our (regression) case
+  CROP_SIZE: 225
+TRAIN:
+  TRAIN_ENABLE: True
+  DATASET: Ego4DKeyframeLocalisation
+  BATCH_SIZE: 2
+TEST:
+  ENABLE: False
+DATA_LOADER:
+  NUM_WORKERS: 5
+  PIN_MEMORY: False
+  SHUFFLE: False
+  ENABLE_MULTI_THREAD_DECODE: True
+  SOFT_LABELS: False
+MISC:
+  VERBOSE: True
+  CHECKPOINT_FILE_PATH: /ssd_scratch/cvit/sid/ego4d/models/temp.pth
+  FAST_DEV_RUN: True
+  NUM_GPUS: 1
+  OUTPUT_DIR: /ssd_scratch/cvit/sid/ego4d_benchmark/results
+MODEL:
+  NUM_CLASSES: [2]
+  HEAD_ACT: softmax
+  MODEL_NAME: KeyframeLocalisationClassification
+SOLVER:
+  BASE_LR: 0.01

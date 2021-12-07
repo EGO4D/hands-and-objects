@@ -1,0 +1,13 @@
+{
+    "train": ["4dc6ab73-b1e1-42c9-9307-50b1f455e50c",   "ceb9bd17-515e-446d-bf01-e6005867a013",
+        "4dd2ad56-51e4-4529-99e4-c1c711ec7329",   "4e08833b-5ba6-43e5-aab0-9f8063de5326",   
+        "d00c985e-9038-4e6d-912f-4daa938bbcc6",   "d011d171-5057-4968-ae7c-30dd484d7cf1",
+        "fff5b8bd-1fc2-457b-9760-7691a7c1d095", "80d2d992-0765-4fd9-b75b-7334cfefbd6f",
+        "3b609b23-f91d-43da-9918-ce928181f53f", "588dfc03-9c6b-4402-8a6b-f99867a24674",
+        "ab6f68a2-e5ba-48ce-ac24-7fb3df0584f2"],
+    "val": ["3b3ecf0c-ee8d-4518-bf1c-3301ba44c743",   "b5c5d054-4cc3-4e54-b283-6845ca022eb8",
+        "2f6da5f6-e26c-4ac3-8f71-12386f7588e2"],
+    "test": ["01db7c39-a512-4bac-b284-dff8c7360e80",   "817170ad-1f3b-44b1-9772-fe914fa17f30",
+        "020f30ad-0a70-4aaf-835b-fb394830b06c",
+        "025fa90b-bf23-4023-ab5b-6eefbad57e7e", "f4549acc-60aa-4adf-ab2a-11b9e03d067a"]
+}

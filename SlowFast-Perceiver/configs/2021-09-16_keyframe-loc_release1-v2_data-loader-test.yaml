@@ -1,0 +1,47 @@
+DATA:
+  VIDEO_DIR_PATH: /mnt/nas/datasets/ego4d-release1/fho_canonical_videos_24-08-21
+  ANN_PATH: /home/sid/canonical_dataset/fho_pre_period_draft_updated_schema_tested.json
+  SPLIT_PATH: /home/sid/canonical_dataset/2021-08-09_provided_splits
+  CLIPS_SAVE_PATH: /mnt/hdd/datasets/ego4d-release1/fho_canonical_extracted_frames_27-08-21
+  VIDEO_LOCATIONS_CSV: /home/sid/canonical_dataset/manifest.csv
+  NO_SC_PATH: /mnt/hdd/datasets/ego4d-release1/fho_canonical_extracted_frames_negative_clips_27-08-21
+  NO_SC_SPLIT_PATH: /home/sid/canonical_dataset/negative_clips_splits_json_2021-09-17.json
+  SAMPLING_FPS: 2
+  CLIP_LEN_SEC: 8
+  DECODING_BACKEND: pyav
+  TARGET_FPS: 30
+  NUM_FRAMES: 0
+  CROP_SIZE: 225
+  TASK: "state_change_detection_and_keyframe_localization"
+TRAIN:
+  TRAIN_ENABLE: True
+  DATASET: CanonicalKeyframeLocalisation
+  BATCH_SIZE: 4
+TEST:
+  ENABLE: True
+  BATCH_SIZE: 4
+  JSON: /home/sid/canonical_dataset/fixed_test_set_canonical_17-09-21.json
+  VAL_JSON: /home/sid/canonical_dataset/fixed_val_set_canonical_17-09-21.json
+  DATASET: CanonicalKeyframeLocalisation
+DATA_LOADER:
+  NUM_WORKERS: 36
+  PIN_MEMORY: True
+  SHUFFLE: True
+  ENABLE_MULTI_THREAD_DECODE: True
+  SOFT_LABELS: False
+  IS_NO_STATE_CHANGE: True
+MISC:
+  VERBOSE: False
+  FAST_DEV_RUN: False
+  NUM_GPUS: 2
+  OUTPUT_DIR: /home/sid/benchmark/2021-08-30_toy_exp_lr-0001_temporal-filters-3_num-states-9
+  TEST_TRAIN_CODE: False
+MODEL:
+  ARCH: "slow_layer5"
+  NUM_CLASSES: [1]
+  NUM_STATE_CLASSES: [9]
+  HEAD_ACT: softmax
+  MODEL_NAME: DualHeadResNet
+SOLVER:
+  BASE_LR: 0.0001
+  MAX_EPOCH: 10000
