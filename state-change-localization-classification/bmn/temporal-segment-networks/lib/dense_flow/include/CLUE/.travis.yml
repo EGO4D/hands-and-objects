@@ -1,0 +1,38 @@
+language: cpp
+
+sudo: false
+
+os:
+  - linux
+
+compiler:
+  - gcc
+  - clang
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - cmake
+      - gcc-4.8
+      - g++-4.8
+
+before_install:
+  - "pushd . && mkdir $HOME/deps && cd $HOME/deps"
+  - "wget https://github.com/google/googletest/archive/release-1.7.0.tar.gz"
+  - "tar -xvf release-1.7.0.tar.gz"
+  - "cd googletest-release-1.7.0 && cmake . && cmake --build . && mkdir lib && mv *.a lib/ && cd -"
+  - "popd"
+
+install:
+  - if [ "$CXX" = "g++" ]; then export CXX="g++-4.8" CC="gcc-4.8"; fi
+  - export GTEST_ROOT="$HOME/deps/googletest-release-1.7.0"
+
+script:
+  - "uname -a"
+  - "$CXX --version"
+  - "cmake . && make && ctest ."
+
+notifications:
+  email: false

@@ -1,0 +1,49 @@
+DATA:
+  VIDEO_DIR_PATH: /mnt/nas/datasets/ego4d-miniset/v2
+  ANN_PATH: /mnt/nas/datasets/ego4d-miniset/fho_miniset_v2.json
+  SPLIT_PATH: /mnt/nas/datasets/ego4d-miniset/generate_split/split_v1.json
+  CLIPS_SAVE_PATH: /mnt/hdd/sid/keyframe_localisation_clips
+  NO_SC_PATH: /home/sid/data/non_fho_clips
+  SAMPLING_FPS: 2
+  CLIP_LEN_SEC: 8
+  DECODING_BACKEND: pyav
+  TARGET_FPS: 30
+  NUM_FRAMES: 0
+  CROP_SIZE: 225
+  TASK: "BMN_Action_Proposal"
+  OUTPUT_DIR: /home/sid/Raghava/bmn_results/
+TRAIN:
+  TRAIN_ENABLE: True
+  DATASET: Ego4DKeyframeLocalisation
+  BATCH_SIZE: 1
+  EPOCH: 20
+  CHECKPOINT: /home/sid/Raghava/bmn_checkpoint
+  INIT_PRETRAIN_FEATURE: False
+  INIT_MODEL_PATH: /home/sid/benchmark/train_single_pred_26-05-21/lightning_logs/version_2/checkpoints/last.ckpt
+TEST:
+  ENABLE: True
+DATA_LOADER:
+  NUM_WORKERS: 36
+  PIN_MEMORY: False
+  SHUFFLE: False
+  ENABLE_MULTI_THREAD_DECODE: True
+  SOFT_LABELS: False
+  IS_NO_STATE_CHANGE: False
+MISC:
+  VERBOSE: True
+  FAST_DEV_RUN: False
+  NUM_GPUS: 4
+  OUTPUT_DIR: /home/sid/benchmark/results
+  TEST_TRAIN_CODE: False
+MODEL:
+  NUM_CLASSES: [2]
+  HEAD_ACT: softmax
+  MODEL_NAME: ActionProposal
+  LOSS_FUNC: bmn_loss
+  MODE: Train
+SOLVER:
+  BASE_LR: 0.01
+  OPTIMIZING_METHOD: adam
+BMN:
+  TEMPORAL_SCALE: 16
+  FEATURE_SIZE: 131072

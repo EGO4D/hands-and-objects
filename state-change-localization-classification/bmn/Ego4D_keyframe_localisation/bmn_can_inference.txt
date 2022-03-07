@@ -1,0 +1,4 @@
+> /home/sid/Raghava/Ego4D_keyframe_localisation/bmn_train_test_can.py(211)<module>()
+-> if __name__ == '__main__':
+(Pdb) --KeyboardInterrupt--
+(Pdb) 

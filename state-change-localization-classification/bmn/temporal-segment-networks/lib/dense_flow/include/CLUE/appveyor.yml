@@ -1,0 +1,22 @@
+# build format
+version: "{build}"
+
+# scripts that run after cloning repository
+install:
+# - todo: add code to install google-test
+
+# configurations to add to build matrix
+configuration:
+  - Debug
+  - Release
+
+# scripts to run before build
+before_build:
+  - mkdir build
+  - cd build
+  - cmake ..
+
+# build and run tests
+build_script:
+  - make
+  - ctest .

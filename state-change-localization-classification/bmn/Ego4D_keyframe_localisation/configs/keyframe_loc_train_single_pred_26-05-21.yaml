@@ -1,0 +1,39 @@
+DATA:
+  VIDEO_DIR_PATH: /mnt/nas/datasets/ego4d-miniset/v2
+  ANN_PATH: /mnt/nas/datasets/ego4d-miniset/fho_miniset_v2.json
+  SPLIT_PATH: /mnt/nas/datasets/ego4d-miniset/generate_split/split_v1.json
+  CLIPS_SAVE_PATH: /mnt/hdd/sid/keyframe_localisation_clips
+  NO_SC_PATH: /home/sid/data/non_fho_clips
+  SAMPLING_FPS: 2
+  CLIP_LEN_SEC: 8
+  DECODING_BACKEND: pyav
+  TARGET_FPS: 30
+  NUM_FRAMES: 0
+  CROP_SIZE: 225
+  TASK: "state_change_detection_and_keyframe_localization"
+TRAIN:
+  TRAIN_ENABLE: True
+  DATASET: Ego4DKeyframeLocalisation
+  BATCH_SIZE: 4
+TEST:
+  ENABLE: True
+DATA_LOADER:
+  NUM_WORKERS: 8
+  PIN_MEMORY: True
+  SHUFFLE: True
+  ENABLE_MULTI_THREAD_DECODE: True
+  SOFT_LABELS: False
+  IS_NO_STATE_CHANGE: True
+MISC:
+  VERBOSE: False
+  FAST_DEV_RUN: False
+  NUM_GPUS: 2
+  OUTPUT_DIR: /home/sid/benchmark/train_single_pred_26-05-21
+  TEST_TRAIN_CODE: False
+MODEL:
+  NUM_CLASSES: [1]
+  HEAD_ACT: softmax
+  MODEL_NAME: DualHeadResNet
+SOLVER:
+  BASE_LR: 0.001
+  MAX_EPOCH: 1000

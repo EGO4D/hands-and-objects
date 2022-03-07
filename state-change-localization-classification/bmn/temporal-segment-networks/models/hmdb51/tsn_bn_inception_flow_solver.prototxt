@@ -1,0 +1,31 @@
+net: "models/hmdb51/tsn_bn_inception_flow_train_val.prototxt"
+
+# testing parameter
+test_iter: 383
+test_interval: 500
+test_initialization: true
+
+# output
+display: 20
+average_loss: 20
+#snapshot: 500
+snapshot_prefix: "models/hmdb51_split_1_tsn_flow_bn_inception"
+debug_info: false
+
+# learning rate
+base_lr: 0.005
+lr_policy: "multistep"
+gamma: 0.1
+stepvalue: [4000, 6000]
+max_iter: 7000
+iter_size: 1
+
+# parameter of SGD
+momentum: 0.9
+weight_decay: 0.0005
+clip_gradients: 20
+
+# GPU setting
+solver_mode: GPU
+device_id: [0,1,2,3]
+richness: 200

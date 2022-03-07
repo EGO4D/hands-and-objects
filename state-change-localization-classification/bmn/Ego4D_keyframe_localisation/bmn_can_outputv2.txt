@@ -1,0 +1,23 @@
+Using exisiting JSON from /home/sid/canonical_dataset/negative-for-loop-faster_mode-train_2021-09-20.json for faster loading...
+Number of clips for train: 45008
+[INFO] Validation JSON file exists...
+Using exisiting JSON from /home/sid/canonical_dataset/negative-for-loop-faster_mode-val_2021-09-20.json for faster loading...
+Number of clips for val: 31405
+BMN training loss(epoch 7): tem_loss: 0.240, pem class_loss: 0.062, pem reg_loss: 0.006, total_loss: 0.362
+BMN test loss(epoch 7): tem_loss: 0.745, pem class_loss: 0.106, pem reg_loss: 0.006, total_loss: 0.912
+BMN training loss(epoch 8): tem_loss: 0.233, pem class_loss: 0.061, pem reg_loss: 0.006, total_loss: 0.351
+BMN test loss(epoch 8): tem_loss: 0.679, pem class_loss: 0.108, pem reg_loss: 0.006, total_loss: 0.850
+BMN training loss(epoch 9): tem_loss: 0.234, pem class_loss: 0.061, pem reg_loss: 0.006, total_loss: 0.351
+BMN test loss(epoch 9): tem_loss: 0.827, pem class_loss: 0.110, pem reg_loss: 0.007, total_loss: 1.004
+BMN training loss(epoch 10): tem_loss: 0.236, pem class_loss: 0.061, pem reg_loss: 0.006, total_loss: 0.355
+BMN test loss(epoch 10): tem_loss: 0.774, pem class_loss: 0.103, pem reg_loss: 0.006, total_loss: 0.935
+BMN training loss(epoch 11): tem_loss: 0.236, pem class_loss: 0.061, pem reg_loss: 0.006, total_loss: 0.356
+BMN test loss(epoch 11): tem_loss: 0.701, pem class_loss: 0.115, pem reg_loss: 0.006, total_loss: 0.879
+BMN training loss(epoch 12): tem_loss: 0.236, pem class_loss: 0.062, pem reg_loss: 0.006, total_loss: 0.355
+BMN test loss(epoch 12): tem_loss: 0.713, pem class_loss: 0.108, pem reg_loss: 0.006, total_loss: 0.883
+BMN training loss(epoch 13): tem_loss: 0.234, pem class_loss: 0.061, pem reg_loss: 0.006, total_loss: 0.353
+BMN test loss(epoch 13): tem_loss: 0.852, pem class_loss: 0.106, pem reg_loss: 0.006, total_loss: 1.021
+BMN training loss(epoch 14): tem_loss: 0.242, pem class_loss: 0.061, pem reg_loss: 0.006, total_loss: 0.362
+BMN test loss(epoch 14): tem_loss: 0.767, pem class_loss: 0.106, pem reg_loss: 0.006, total_loss: 0.931
+BMN training loss(epoch 15): tem_loss: 0.241, pem class_loss: 0.061, pem reg_loss: 0.006, total_loss: 0.361
+BMN test loss(epoch 15): tem_loss: 0.748, pem class_loss: 0.105, pem reg_loss: 0.006, total_loss: 0.910

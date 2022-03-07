@@ -1,0 +1,118 @@
+DATA:
+  VIDEO_DIR_PATH: /mnt/nas/datasets/ego4d_data/v1/full_scale
+  ANN_PATH: /mnt/nas/datasets/ego4d-launch/fho_220208.json
+  SPLIT_PATH: /home/sid/canonical_dataset/2021-08-09_provided_splits
+  CLIPS_SAVE_PATH: /mnt/hdd/datasets/ego4d-release1/fho_canonical_extracted_frames_final_release_12-02-22
+  VIDEO_LOCATIONS_CSV: /home/abrsh/canonical_dataset/manifest.csv
+  NO_SC_PATH: /mnt/hdd/datasets/ego4d-release1/fho_canonical_extracted_frames_final_release_negative_{}_clips_12-02-22
+  NO_SC_SPLIT_PATH: /home/sid/canonical_dataset/negative_clips_splits_json_2021-09-17.json
+  SAMPLING_FPS: 2
+  CLIP_LEN_SEC: 8
+  DECODING_BACKEND: pyav
+  TARGET_FPS: 30
+  INPUT_CHANNEL_NUM: [ 3, 3 ]
+  NUM_FRAMES: 0
+  CROP_SIZE: 224
+  TASK: "state_change_detection_and_keyframe_localization"
+
+TRAIN:
+  TRAIN_ENABLE: True
+  DATASET: StateChangeDetectionAndKeyframeLocalisation_FB_annotations
+  BATCH_SIZE: 8
+  VAL_BATCH_SIZE: 16
+  VAL_ONLY: False
+
+TEST:
+  ENABLE: True
+  BATCH_SIZE: 4
+  JSON: /home/sid/canonical_dataset/fixed_test_set_canonical_final-release_09-02-22.json
+  VAL_JSON: /home/sid/canonical_dataset/fixed_val_set_canonical_final-release_09-02-22.json
+  DATASET: StateChangeDetectionAndKeyframeLocalisation_FB_annotations
+
+DATA_LOADER:
+  NUM_WORKERS: 8 #4
+  PIN_MEMORY: True
+  SHUFFLE: True
+  ENABLE_MULTI_THREAD_DECODE: True
+  SOFT_LABELS: False
+  IS_NO_STATE_CHANGE: False
+
+MISC:
+  VERBOSE: False
+  FAST_DEV_RUN: 0
+  NUM_GPUS: [1, 2,]
+  OUTPUT_DIR: /home/abrsh/benchmark/ego4d_launch
+  TEST_TRAIN_CODE: False
+  LOG_FREQUENCY: 100
+  CHECKPOINT_FILE_PATH: None
+
+MODEL:
+  ARCH: slowfast
+  NUM_CLASSES: [ 16, ]
+  HEAD_ACT: softmax
+  MODEL_NAME: MultiTaskSlowFastPr
+  LOSS_FUNC: cross_entropy
+  DROPOUT_RATE: 0.
+  LAMBDA_2: 0
+  CLASS_WEIGHTS: None
+
+PERCEIVER:
+  INPUT_AXIS: 3
+  NUM_FREQ_BANDS: 6
+  MAX_FREQ: 5
+  DEPTH: 3
+  NUM_LATENTS: 256
+  LATENT_DIM: 512
+  CROSS_HEADS: 1
+  LATENT_HEADS: 8
+  CROSS_DIM_HEAD: 64
+  ATTN_DROPOUT: 0.0
+  FF_DROPOUT: 0.0
+  WEIGHT_TIE_LAYERS: True
+  SELF_PER_CROSS_ATTN: 6
+
+SLOWFAST:
+  ALPHA: 4
+  BETA_INV: 8
+  FUSION_CONV_CHANNEL_RATIO: 2
+  FUSION_KERNEL_SZ: 5
+  USE_PRETRAINED: False
+  FREEZE_PRETRAINED: False
+
+SOLVER:
+  BASE_LR: 0.004
+  LR_POLICY: steps_with_relative_lrs
+  STEPS: [ 0, 10, 40, 80 ]
+  LRS: [ 1, 0.1, 0.01, 0.001 ] # Factors that decay the BASE_LR
+  MAX_EPOCH: 120
+  MOMENTUM: 0.9
+  WEIGHT_DECAY: 1e-4
+  WARMUP_EPOCHS: -1.0
+  WARMUP_START_LR: 0.01
+  OPTIMIZING_METHOD: sgd
+  ACCUMULATE_GRAD_BATCHES: None
+  ACCELERATOR: ddp
+
+BN:
+  USE_PRECISE_STATS: True
+  NUM_BATCHES_PRECISE: 200
+  MOMENTUM: 0.1
+  WEIGHT_DECAY: 0.0
+
+RESNET:
+  ZERO_INIT_FINAL_BN: True
+  WIDTH_PER_GROUP: 64
+  NUM_GROUPS: 1
+  DEPTH: 50
+  TRANS_FUNC: bottleneck_transform
+  STRIDE_1X1: False
+  NUM_BLOCK_TEMP_KERNEL: [ [ 3, 3 ], [ 4, 4 ], [ 6, 6 ], [ 3, 3 ] ]
+  SPATIAL_STRIDES: [ [ 1, 1 ], [ 2, 2 ], [ 2, 2 ], [ 2, 2 ] ]
+  SPATIAL_DILATIONS: [ [ 1, 1 ], [ 1, 1 ], [ 1, 1 ], [ 1, 1 ] ]
+
+NONLOCAL:
+  LOCATION: [ [ [ ], [ ] ], [ [ ], [ ] ], [ [ ], [ ] ], [ [ ], [ ] ] ]
+  GROUP: [ [ 1, 1 ], [ 1, 1 ], [ 1, 1 ], [ 1, 1 ] ]
+  INSTANTIATION: dot_product
+
+PROJECT: "Ego4D-baseline PNR localization"

@@ -1,0 +1,12 @@
+av==8.0.3
+einops==0.3.0
+fvcore==0.1.5.post20210609
+matplotlib==3.3.4
+numpy==1.19.5
+opencv-python==4.5.1.48
+pandas==1.1.5
+scikit-learn==0.24.2
+sklearn==0.0
+torch==1.8.1
+torchvision==0.9.1
+tqdm==4.61.0

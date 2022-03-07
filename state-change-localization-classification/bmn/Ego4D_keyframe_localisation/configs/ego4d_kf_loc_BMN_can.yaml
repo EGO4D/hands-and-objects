@@ -1,0 +1,54 @@
+DATA:
+  VIDEO_DIR_PATH: /mnt/nas/datasets/ego4d-release1/fho_canonical_videos_24-08-21
+  ANN_PATH: /home/sid/canonical_dataset/fho_pre_period_draft_updated_schema_tested.json
+  SPLIT_PATH: /home/sid/canonical_dataset/2021-08-09_provided_splits
+  CLIPS_SAVE_PATH: /mnt/hdd/datasets/ego4d-release1/fho_canonical_extracted_frames_27-08-21
+  VIDEO_LOCATIONS_CSV: /home/sid/canonical_dataset/manifest.csv
+  NO_SC_SPLIT_PATH: /home/sid/canonical_dataset/negative_clips_splits_json_2021-09-17.json
+  NO_SC_PATH: /mnt/hdd/datasets/ego4d-release1/fho_canonical_extracted_frames_negative_clips_27-08-21
+  SAMPLING_FPS: 2
+  CLIP_LEN_SEC: 8
+  DECODING_BACKEND: pyav
+  TARGET_FPS: 30
+  NUM_FRAMES: 0
+  CROP_SIZE: 225
+  TASK: "BMN_Action_Proposal_CAN"
+  OUTPUT_DIR: /home/sid/Raghava/bmn_results/can
+TRAIN:
+  TRAIN_ENABLE: True
+  DATASET: CanonicalKeyframeLocalisation
+  BATCH_SIZE: 1
+  EPOCH: 20
+  CHECKPOINT: /home/sid/Raghava/bmn_can_checkpoint
+  INIT_PRETRAIN_FEATURE: False
+  INIT_MODEL_PATH: /home/sid/benchmark/train_single_pred_26-05-21/lightning_logs/version_2/checkpoints/last.ckpt
+TEST:
+  ENABLE: False
+  JSON: /home/sid/canonical_dataset/fixed_test_set_canonical_17-09-21.json
+  VAL_JSON: /home/sid/canonical_dataset/fixed_val_set_canonical_17-09-21.json
+  DATASET: CanonicalKeyframeLocalisation
+DATA_LOADER:
+  NUM_WORKERS: 36
+  PIN_MEMORY: True
+  SHUFFLE: True
+  ENABLE_MULTI_THREAD_DECODE: True
+  SOFT_LABELS: False
+  IS_NO_STATE_CHANGE: True
+MISC:
+  VERBOSE: True
+  FAST_DEV_RUN: False
+  NUM_GPUS: 4
+  OUTPUT_DIR: /home/sid/Raghava/Ego4D_keyframe_localisation/bmn_results/can
+  TEST_TRAIN_CODE: False
+MODEL:
+  NUM_CLASSES: [2]
+  HEAD_ACT: softmax
+  MODEL_NAME: ActionProposal
+  LOSS_FUNC: bmn_loss
+  MODE: Train
+SOLVER:
+  BASE_LR: 0.0001
+  OPTIMIZING_METHOD: adam
+BMN:
+  TEMPORAL_SCALE: 16
+  FEATURE_SIZE: 131072

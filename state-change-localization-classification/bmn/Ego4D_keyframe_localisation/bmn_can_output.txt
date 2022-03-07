@@ -1,0 +1,19 @@
+Using exisiting JSON from /home/sid/canonical_dataset/negative-for-loop-faster_mode-train_2021-09-20.json for faster loading...
+Number of clips for train: 45008
+[INFO] Validation JSON file exists...
+Using exisiting JSON from /home/sid/canonical_dataset/negative-for-loop-faster_mode-val_2021-09-20.json for faster loading...
+Number of clips for val: 31405
+BMN training loss(epoch 0): tem_loss: 0.245, pem class_loss: 0.067, pem reg_loss: 0.006, total_loss: 0.372
+BMN test loss(epoch 0): tem_loss: 0.904, pem class_loss: 0.135, pem reg_loss: 0.007, total_loss: 1.107
+BMN training loss(epoch 1): tem_loss: 0.233, pem class_loss: 0.065, pem reg_loss: 0.006, total_loss: 0.357
+BMN test loss(epoch 1): tem_loss: 0.725, pem class_loss: 0.112, pem reg_loss: 0.006, total_loss: 0.901
+BMN training loss(epoch 2): tem_loss: 0.235, pem class_loss: 0.063, pem reg_loss: 0.006, total_loss: 0.356
+BMN test loss(epoch 2): tem_loss: 0.718, pem class_loss: 0.109, pem reg_loss: 0.007, total_loss: 0.894
+BMN training loss(epoch 3): tem_loss: 0.237, pem class_loss: 0.064, pem reg_loss: 0.006, total_loss: 0.360
+BMN test loss(epoch 3): tem_loss: 0.838, pem class_loss: 0.115, pem reg_loss: 0.007, total_loss: 1.023
+BMN training loss(epoch 4): tem_loss: 0.231, pem class_loss: 0.066, pem reg_loss: 0.006, total_loss: 0.355
+BMN test loss(epoch 4): tem_loss: 0.789, pem class_loss: 0.117, pem reg_loss: 0.007, total_loss: 0.972
+BMN training loss(epoch 5): tem_loss: 0.235, pem class_loss: 0.064, pem reg_loss: 0.006, total_loss: 0.357
+BMN test loss(epoch 5): tem_loss: 0.761, pem class_loss: 0.104, pem reg_loss: 0.007, total_loss: 0.930
+BMN training loss(epoch 6): tem_loss: 0.239, pem class_loss: 0.119, pem reg_loss: 0.007, total_loss: 0.428
+BMN test loss(epoch 6): tem_loss: 0.700, pem class_loss: 0.106, pem reg_loss: 0.007, total_loss: 0.873
