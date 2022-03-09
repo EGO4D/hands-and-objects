@@ -112,7 +112,7 @@ class StateChangeDetectionAndKeyframeLocalisation(torch.utils.data.Dataset):
         if os.path.isdir(clip_save_path):
             # The frames for this clip are already saved.
             num_frames = len(os.listdir(clip_save_path))
-            if num_frames < 240:
+            if num_frames < (clip_end_frame - clip_start_frame):
                 print(
                     f'Deleting {clip_save_path} as it has {num_frames} frames'
                 )
@@ -126,15 +126,6 @@ class StateChangeDetectionAndKeyframeLocalisation(torch.utils.data.Dataset):
         frames_list = [
             i for i in range(clip_start_frame, clip_end_frame + 1, 1)
         ]
-        try:
-            assert np.isclose(len(frames_list), num_frames_per_video, 1)
-        except AssertionError:
-            # Cases when clip length is less than 8 seconds
-            assert np.isclose(
-                len(frames_list),
-                (clip_end_frame - clip_start_frame) * 30,
-                1
-            )
         frames = self.get_frames_for(
             video_path,
             frames_list,
