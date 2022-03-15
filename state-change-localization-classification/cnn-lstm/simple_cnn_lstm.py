@@ -15,6 +15,8 @@ def forward_reimpl(self, x):
         x = self.layer4(x)
 
         x = self.avgpool(x)
+        # x = torch.flatten(x, 1)
+        # x = self.fc(x)
 
         return x.squeeze(2).squeeze(2)
 

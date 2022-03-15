@@ -1,6 +1,6 @@
-# EGO4D Hands and Objects Benchmark: code for training and evaluating Bi-directional LSTM
+# EGO4D Hands and Objects Benchmark: code for training and evaluating the Bi-directional LSTM baseline
 
-This is the github repository containing the code for reproducing the Bi-directional LSTM reults in the Hands and Objects Benchmark.
+This is the github repository containing the code for reproducing the Bi-directional LSTM reults in the Hands and Objects Benchmark, and generating submission files for the corresponding EGO4D challenges.
 
 ## Requirements
 The code is tested to work correctly with:
@@ -38,4 +38,4 @@ other modifiable arguments can be found in `main.py`. For example:
 + --num_layers: how many layers in LSTM, default = 1
 + --save_name: the name of the saved best model parameters
 
-
+For the dataset specific arguments, please refer to the details in other baselines.

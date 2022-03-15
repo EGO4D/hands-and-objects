@@ -1,4 +1,9 @@
 import torch
+import torch.nn as nn
+from torch.utils.data import DataLoader
+import types
+import os.path as osp
+from tqdm import tqdm
 
 def accuracy(output, target):
     maxk = 1
@@ -12,8 +17,6 @@ def accuracy(output, target):
     correct_k = correct[:k].view(-1).float().sum(0, keepdim=True)
     res = correct_k.mul_(100.0 / batch_size)
     return res
-
-# state = True
 
 class AverageMeter(object):
     """Computes and stores the average and current value"""
@@ -41,7 +44,7 @@ class AverageMeter(object):
 def train(model, loader, optimizer, criterion, epoch, state):
     losses = AverageMeter('bceloss')
     model.train()
-    for i, sample in enumerate(loader):
+    for i, sample in tqdm(enumerate(loader), total=len(loader)):
         x = sample[0].cuda()
         if state:
             y = sample[2].cuda().long()
@@ -64,7 +67,7 @@ def val(model, loader, criterion, epoch, state):
     losses = AverageMeter('loss')
     accs = AverageMeter('acc')
     model.eval()
-    for i, sample in enumerate(loader):
+    for i, sample in tqdm(enumerate(loader), total=len(loader)):
         x = sample[0].cuda()
         if state:
             y = sample[2].cuda().long()
@@ -82,6 +85,7 @@ def val(model, loader, criterion, epoch, state):
 
         if (i+1) % 500 == 0:
             print('Validation Epoch: %d, %d/%d, loss: %.4f'%(epoch, i, len(loader), losses.avg))
+            
 
     print('Finished Validation Epoch: %d, loss: %.4f'%(epoch, losses.avg))
-    return losses.avg
+    return losses.avg, None, None
