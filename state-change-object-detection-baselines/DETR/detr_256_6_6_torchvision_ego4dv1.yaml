@@ -14,7 +14,6 @@ MODEL:
     NUM_OBJECT_QUERIES: 15
     NUM_CLASSES: 1
 DATASETS:
-DATASETS:
   TRAIN: ("ego4dv1_pnr_objects_trainval",)
   TEST: ("ego4dv1_pnr_objects_test",)
 SOLVER:
