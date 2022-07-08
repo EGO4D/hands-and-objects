@@ -61,7 +61,11 @@ class StateChangeDetectionAndKeyframeLocalisation(torch.utils.data.Dataset):
             assert count not in self.package.keys()
             if self.mode in ['train', 'val']:
                 state_change = value['state_change']
-                pnr_frame = value['parent_pnr_frame']
+                # Fix for issue #8
+                if 'parent_pnr_frame' in value.keys():
+                    pnr_frame = value['parent_pnr_frame']
+                else:
+                    pnr_frame = value['pnr_frame']
             else:
                 state_change = None
                 pnr_frame = None
