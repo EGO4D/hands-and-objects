@@ -23,7 +23,7 @@ Object state changes can be viewed along temporal, spatial, and semantic axes, l
 
 1. [State change object detection](./state-change-localization-classification/README.md): given three temporal frames (pre, post, PNR), the goal is to regress the bounding box of the object undergoing a state change
 
-1. [Object state change classification](./object-of-change-detection/README.md): Given a short video clip, the goal is to classify whether an object state change has taken place or not
+1. [Object state change classification](./state-change-localization-classification/README.md): Given a short video clip, the goal is to classify whether an object state change has taken place or not
 
 Please see the individual README for each of the sub-task directories for more detail. 
 
