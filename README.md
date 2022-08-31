@@ -1,7 +1,7 @@
 **[NEW!] 2022 Ego4D Challenges now open for Hands And Objects**
-- [Object State Change Classification](https://eval.ai/web/challenges/challenge-page/1627/overview) (deadline June 1 2022)
-- [PNR Temporal Localization](https://eval.ai/web/challenges/challenge-page/1622/overview) (deadline June 1 2022)
-- [State Change Object Detection](https://eval.ai/web/challenges/challenge-page/1632/overview) (deadline Oct 1 2022)
+- [Object State Change Classification](https://eval.ai/web/challenges/challenge-page/1627/overview)
+- [PNR Temporal Localization](https://eval.ai/web/challenges/challenge-page/1622/overview)
+- [State Change Object Detection](https://eval.ai/web/challenges/challenge-page/1632/overview)
 
 
 
